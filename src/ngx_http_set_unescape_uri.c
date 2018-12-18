@@ -3,7 +3,7 @@
 #endif
 #include "ddebug.h"
 
-#include <ndk.h>
+#include "ndk.h"
 #include "ngx_http_set_unescape_uri.h"
 
 #define NGX_UNESCAPE_URI_COMPONENT  0

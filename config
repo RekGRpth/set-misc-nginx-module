@@ -1,20 +1,20 @@
 ngx_addon_name=ngx_http_set_misc_module
 
-if test -n "$ngx_module_link"; then
-    if test -n "$NDK_SRCS"; then
-        echo "found ngx_devel_kit for ngx_set_misc; looks good."
-    else
-        echo "error: ngx_devel_kit is required to build ngx_set_misc; please put it before ngx_set_misc." 1>&2
-        exit 1
-    fi
-else
-    if echo $HTTP_MODULES | grep " ndk_http_module" > /dev/null; then
-        echo "found ngx_devel_kit for ngx_set_misc; looks good."
-    else
-        echo "error: ngx_devel_kit is required to build ngx_set_misc; please put it before ngx_set_misc." 1>&2
-        exit 1
-    fi
-fi
+#if test -n "$ngx_module_link"; then
+#    if test -n "$NDK_SRCS"; then
+#        echo "found ngx_devel_kit for ngx_set_misc; looks good."
+#    else
+#        echo "error: ngx_devel_kit is required to build ngx_set_misc; please put it before ngx_set_misc." 1>&2
+#        exit 1
+#    fi
+#else
+#    if echo $HTTP_MODULES | grep " ndk_http_module" > /dev/null; then
+#        echo "found ngx_devel_kit for ngx_set_misc; looks good."
+#    else
+#        echo "error: ngx_devel_kit is required to build ngx_set_misc; please put it before ngx_set_misc." 1>&2
+#        exit 1
+#    fi
+#fi
 
 SET_MISC_SRCS="                                                             \
             $ngx_addon_dir/src/ngx_http_set_base32.c                        \
@@ -32,6 +32,7 @@ SET_MISC_SRCS="                                                             \
             $ngx_addon_dir/src/ngx_http_set_random.c                        \
             $ngx_addon_dir/src/ngx_http_set_secure_random.c                 \
             $ngx_addon_dir/src/ngx_http_set_rotate.c
+                    $ngx_addon_dir/src/ndk.c                                \
             "
 
 SET_MISC_DEPS="                                                             \
@@ -50,6 +51,7 @@ SET_MISC_DEPS="                                                             \
             $ngx_addon_dir/src/ngx_http_set_rotate.h                        \
             $ngx_addon_dir/src/ngx_http_set_secure_random.h                 \
             $ngx_addon_dir/src/ngx_http_set_misc_module.h                   \
+                    $ngx_addon_dir/src/ndk.h                                \
             "
 
 if [ $USE_OPENSSL = YES -o $MAIL_SSL = YES ]; then

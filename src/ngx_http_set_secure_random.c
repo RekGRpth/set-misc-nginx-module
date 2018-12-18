@@ -4,7 +4,7 @@
 #include "ddebug.h"
 
 
-#include <ndk.h>
+#include "ndk.h"
 #include "ngx_http_set_secure_random.h"
 #include <stdlib.h>
 
