@@ -6,7 +6,9 @@
 #include "ndk.h"
 #include "ngx_http_set_unescape_uri.h"
 
-#define NGX_UNESCAPE_URI_COMPONENT  0
+#ifndef NGX_UNESCAPE_URI_COMPONENT
+#define NGX_UNESCAPE_URI_COMPONENT 0
+#endif
 
 
 ngx_int_t

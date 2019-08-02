@@ -25,7 +25,9 @@
 #include "ngx_http_set_rotate.h"
 
 
-#define NGX_UNESCAPE_URI_COMPONENT  0
+#ifndef NGX_UNESCAPE_URI_COMPONENT
+#define NGX_UNESCAPE_URI_COMPONENT 0
+#endif
 #define BASE32_ALPHABET_LEN         32
 
 
