@@ -4,7 +4,6 @@
 #include "ddebug.h"
 
 
-#include "ndk_set_var.h"
 #include "ngx_http_set_random.h"
 #include <stdlib.h>
 

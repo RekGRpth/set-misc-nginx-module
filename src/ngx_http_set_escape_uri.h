@@ -2,6 +2,9 @@
 #define NGX_HTTP_SET_ESCAPE_URI
 
 
+#include <ngx_http.h>
+
+
 ngx_int_t
 ngx_http_set_misc_escape_uri(ngx_http_request_t *r, ngx_str_t *res,
     ngx_http_variable_value_t *v);
