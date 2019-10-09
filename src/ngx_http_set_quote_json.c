@@ -3,7 +3,7 @@
 #endif
 #include "ddebug.h"
 
-#include "ndk.h"
+#include "ndk_set_var.h"
 #include "ngx_http_set_quote_json.h"
 
 ngx_int_t

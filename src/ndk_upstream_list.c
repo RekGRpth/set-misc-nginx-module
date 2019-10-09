@@ -1,3 +1,7 @@
+#include    "ndk_upstream_list.h"
+
+
+extern ngx_module_t  ngx_http_set_misc_module;
 
 
 /* TODO : generalize this into a generic list module, with weight */
@@ -55,7 +59,7 @@ ndk_upstream_list_parse_weight (ndk_upstream_list_parse_t *ulp)
 
 
 
-static char *
+char *
 ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
 {
     /* TODO : change this for getting upstream pointer if available */
@@ -66,9 +70,9 @@ ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf)
     ndk_upstream_list_t         *ul, *ule;
     ndk_upstream_list_parse_t    ulp;
 
-    ndk_http_main_conf_t        *mcf;
+    ndk_http_main_conf_t *mcf;
 
-    mcf = ngx_http_conf_get_module_main_conf (cf, ndk_http_module);
+    mcf = ngx_http_conf_get_module_main_conf (cf, ngx_http_set_misc_module);
 
     ula = mcf->upstreams;
 

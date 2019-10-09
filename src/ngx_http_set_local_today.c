@@ -3,7 +3,7 @@
 #endif
 #include "ddebug.h"
 
-#include "ndk.h"
+#include "ndk_set_var.h"
 
 
 #ifndef NGX_HTTP_SET_MISC_FMT_DATE_LEN

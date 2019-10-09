@@ -5,7 +5,8 @@
 
 
 #include "ngx_http_set_misc_module.h"
-#include "ndk.h"
+#include "ndk_set_var.h"
+#include "ndk_upstream_list.h"
 #include "ngx_http_set_base32.h"
 #include "ngx_http_set_default_value.h"
 #include "ngx_http_set_hashed_upstream.h"
@@ -31,6 +32,7 @@
 #define BASE32_ALPHABET_LEN         32
 
 
+static void *ngx_http_set_misc_create_main_conf(ngx_conf_t *cf);
 static void *ngx_http_set_misc_create_loc_conf(ngx_conf_t *cf);
 static char *ngx_http_set_misc_merge_loc_conf(ngx_conf_t *cf, void *parent,
     void *child);
@@ -440,6 +442,14 @@ static ngx_command_t  ngx_http_set_misc_commands[] = {
         0,
         NULL
     },
+    {
+        ngx_string ("upstream_list"),
+        NGX_HTTP_MAIN_CONF|NGX_HTTP_SRV_CONF|NGX_CONF_2MORE,
+        ndk_upstream_list,
+        0,
+        0,
+        NULL
+    },
 
     ngx_null_command
 };
@@ -449,7 +459,7 @@ static ngx_http_module_t  ngx_http_set_misc_module_ctx = {
     NULL,                                 /* preconfiguration */
     NULL,                                 /* postconfiguration */
 
-    NULL,                                  /* create main configuration */
+    ngx_http_set_misc_create_main_conf,    /* create main configuration */
     NULL,                                  /* init main configuration */
 
     NULL,                                  /* create server configuration */
@@ -474,6 +484,20 @@ ngx_module_t  ngx_http_set_misc_module = {
     NULL,                                   /* exit master */
     NGX_MODULE_V1_PADDING
 };
+
+
+void *
+ngx_http_set_misc_create_main_conf(ngx_conf_t *cf)
+{
+    ndk_http_main_conf_t    *mcf;
+
+    mcf = ngx_pcalloc(cf->pool, sizeof(ndk_http_main_conf_t));
+    if (mcf == NULL) {
+        return NULL;
+    }
+
+    return  mcf;
+}
 
 
 void *

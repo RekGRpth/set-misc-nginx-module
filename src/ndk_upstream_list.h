@@ -1,3 +1,13 @@
+#ifndef _NDK_UPSTREAM_LIST_H_INCLUDED_
+#define _NDK_UPSTREAM_LIST_H_INCLUDED_
+
+#include <ngx_http.h>
+
+
+typedef struct {
+    ngx_array_t         *upstreams;
+} ndk_http_main_conf_t;
+
 
 #if (NDK_UPSTREAM_LIST_CMDS)
 
@@ -23,5 +33,9 @@ typedef struct {
 
 ndk_upstream_list_t *
 ndk_get_upstream_list (ndk_http_main_conf_t *mcf, u_char *data, size_t len);
+char *
+ndk_upstream_list (ngx_conf_t *cf, ngx_command_t *cmd, void *conf);
 
 #endif
+
+#endif /* _NDK_UPSTREAM_LIST_H_INCLUDED_ */

@@ -3,7 +3,7 @@
 #endif
 #include "ddebug.h"
 
-#include "ndk.h"
+#include "ndk_set_var.h"
 
 #include "ngx_http_set_hmac.h"
 #include <openssl/evp.h>
@@ -39,7 +39,8 @@ ngx_http_set_misc_set_hmac_sha1(ngx_http_request_t *r, ngx_str_t *res,
     }
 
     res->len = md_len;
-    ndk_palloc_re(res->data, r->pool, md_len);
+    res->data = ngx_palloc(r->pool, md_len);
+    if (res->data == NULL) return NGX_ERROR;
 
     ngx_memcpy(res->data,
                &md,
