@@ -37,9 +37,9 @@
 #define     ndk_http_get_main_conf(r)         ngx_http_get_module_main_conf (r, ndk_http_module)
 
 typedef struct {
-//#if (NDK_UPSTREAM_LIST)
+#if (NDK_UPSTREAM_LIST)
     ngx_array_t         *upstreams;
-//#endif
+#endif
 } ndk_http_main_conf_t;
 
 #endif /* NDK_HTTP_CREATE_MAIN_CONF */
