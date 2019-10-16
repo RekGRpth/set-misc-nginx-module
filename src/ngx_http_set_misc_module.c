@@ -5,7 +5,6 @@
 
 
 #include "ngx_http_set_misc_module.h"
-#include "ndk_set_var.h"
 #include "ndk_upstream_list.h"
 #include "ngx_http_set_base32.h"
 #include "ngx_http_set_default_value.h"
