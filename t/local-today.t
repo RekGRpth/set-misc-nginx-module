@@ -19,6 +19,9 @@ run_tests();
 __DATA__
 
 === TEST 1: sanity
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /foo {
         set_local_today $today;

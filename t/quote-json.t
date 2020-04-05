@@ -16,6 +16,9 @@ run_tests();
 __DATA__
 
 === TEST 1: set quote json value
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /foo {
         set $foo "hello\n\r'\"\\";
@@ -30,6 +33,9 @@ GET /foo
 
 
 === TEST 2: set quote json value (in place)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /foo {
         set $foo "hello\n\r'\"\\";
@@ -44,6 +50,9 @@ GET /foo
 
 
 === TEST 3: set quote empty json value
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /foo {
         set $foo "";
@@ -58,6 +67,9 @@ null
 
 
 === TEST 4: set quote null json value
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /foo {
         set_quote_json_str $foo;

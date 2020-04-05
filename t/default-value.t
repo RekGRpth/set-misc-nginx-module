@@ -16,6 +16,9 @@ run_tests();
 __DATA__
 
 === TEST 1: set if empty
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /foo {
         set $a 32;
@@ -34,6 +37,9 @@ GET /foo
 
 
 === TEST 2: set if empty
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /foo {
         set $bar $arg_bar;
@@ -53,6 +59,9 @@ GET /foo?bar=71
 
 
 === TEST 3: set if empty
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /foo {
         set $bar $arg_bar;
@@ -73,6 +82,9 @@ GET /foo?bar=
 
 === TEST 4: set if empty (using arg_xxx directly)
 buggy?
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /foo {
         set_if_empty $arg_bar 15;

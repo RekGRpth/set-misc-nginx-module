@@ -15,6 +15,9 @@ run_tests();
 __DATA__
 
 === TEST 1: a 32-character alphanum
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /alphanum {
         set_secure_random_alphanum $res 32;
@@ -28,6 +31,9 @@ __DATA__
 
 
 === TEST 2: a 16-character alphanum
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /alphanum {
         set_secure_random_alphanum $res 16;
@@ -41,6 +47,9 @@ __DATA__
 
 
 === TEST 3: a 1-character alphanum
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /alphanum {
         set_secure_random_alphanum $res 1;
@@ -54,6 +63,9 @@ __DATA__
 
 
 === TEST 4: length less than <= 0 should fail
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /alphanum {
         set_secure_random_alphanum $res 0;
@@ -68,6 +80,9 @@ __DATA__
 
 
 === TEST 5: length less than <= 0 should fail
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /alphanum {
         set_secure_random_alphanum $res -4;
@@ -82,6 +97,9 @@ __DATA__
 
 
 === TEST 6: non-numeric length should fail
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /alphanum {
         set_secure_random_alphanum $res bob;
@@ -96,6 +114,9 @@ __DATA__
 
 
 === TEST 7: a 16-character lcalpha
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /lcalpha {
         set_secure_random_lcalpha $res 16;

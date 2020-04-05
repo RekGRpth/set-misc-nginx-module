@@ -15,6 +15,9 @@ run_tests();
 __DATA__
 
 === TEST 1: sanity
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set $a 1;
@@ -52,6 +55,9 @@ e = 3
 
 
 === TEST 2: bad current value
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set $a abc;
@@ -68,6 +74,9 @@ set_rotate: bad current value: "abc"
 
 
 === TEST 3: bad "from" value
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set $a 2;
@@ -85,6 +94,9 @@ set_rotate: bad "from" argument value: "abc"
 
 
 === TEST 4: bad "to" argument value
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set $a 2;
@@ -102,6 +114,9 @@ set_rotate: bad "to" argument value: "abc"
 
 
 === TEST 5: when no current value is given
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /incr {
         set_rotate $a 1 3;
@@ -132,6 +147,9 @@ a = 3
 
 
 === TEST 6: when no current value is given (starting from 0)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /incr {
         set_rotate $a 0 2;
@@ -162,6 +180,9 @@ a = 2
 
 
 === TEST 7: when a non-integer string value is given
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /incr {
         set $a "hello";
@@ -193,6 +214,9 @@ set_rotate: bad current value: "hello"
 
 
 === TEST 8: when an empty string value is given
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /incr {
         set $a "";
@@ -224,6 +248,9 @@ a = 2
 
 
 === TEST 9: value persistence is per-location
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /incr {
         set_rotate $a 0 2;

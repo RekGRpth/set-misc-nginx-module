@@ -15,6 +15,9 @@ run_tests();
 __DATA__
 
 === TEST 1: set escape uri
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
 	location /foo {
 		set $foo "hello world";
@@ -29,6 +32,9 @@ hello%20world
 
 
 === TEST 2: set escape uri(in-place)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
 	location /foo {
 		set $foo "hello world";
@@ -43,6 +49,9 @@ hello%20world
 
 
 === TEST 3: blank string
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
 	location /foo {
 		set $foo "";
@@ -57,6 +66,9 @@ GET /foo
 
 
 === TEST 4: blank string(in place)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
 	location /foo {
 		set $foo "";
@@ -71,6 +83,9 @@ GET /foo
 
 
 === TEST 5: eacape chinese character
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /foo {
         set $foo "你好";
@@ -85,6 +100,9 @@ GET /foo
 
 
 === TEST 6: escape long string
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /foo {
         set $foo "法规及饿哦物权法家哦低价非结果哦我二期界  附件饿哦武器  积分饿哦为契机佛i 该软件哦气氛  份额叫我起 国无二君哦气氛为界非ieowq结果哦而完全附件  份额叫我iqfjeowiqgjeriowqfjpdjfosadijfoiasdjf 附件饿哦武器界 份额叫我起界份额叫我起哦ifjefejwioq附件饿哦武器界非风格及去哦根据份额叫我起哦界份额为契机哦乳房阿基完全哦igqtewqo个人就去哦ieorjwrewqoi日哦额外起今天诶哦我亲热为特务前日哦我而哥特完全哦iijrtewmkdf 服务鄂潜江哦irewq";
@@ -99,6 +117,9 @@ GET /foo
 
 
 === TEST 7: no need to escape
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /foo {
         set $foo 'welcometotheworldofnginx';
@@ -113,6 +134,9 @@ welcometotheworldofnginx
 
 
 === TEST 8: fixed ngx_escape_uri issues: + and / should also be escaped
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /foo {
         set $foo '+/=';
@@ -127,6 +151,9 @@ GET /foo
 
 
 === TEST 9: fixed ngx_escape_uri issues: / {} : & [] and more
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /foo {
         set $foo '"a/b={}:<>;&[]\\^';

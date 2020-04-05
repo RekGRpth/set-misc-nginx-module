@@ -16,6 +16,9 @@ run_tests();
 __DATA__
 
 === TEST 1: sha1 hello (copy)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /sha1 {
         set_sha1 $a hello;
@@ -29,6 +32,9 @@ aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d
 
 
 === TEST 2: sha1 hello (in-place)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /sha1 {
         set $a hello;
@@ -43,6 +49,9 @@ aaf4c61ddcc5e8a2dabede0f3b482cd9aea9434d
 
 
 === TEST 3: sha1 (empty)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /sha1 {
         set_sha1 $a "";
@@ -56,6 +65,9 @@ da39a3ee5e6b4b0d3255bfef95601890afd80709
 
 
 === TEST 4: md5 hello (copy)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /md5 {
         set_md5 $a hello;
@@ -69,6 +81,9 @@ GET /md5
 
 
 === TEST 5: md5 hello (in-place)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /md5 {
         set $a hello;
@@ -83,6 +98,9 @@ GET /md5
 
 
 === TEST 6: md5 (empty)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /md5 {
         set_md5 $a "";

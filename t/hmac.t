@@ -16,6 +16,9 @@ run_tests();
 __DATA__
 
 === TEST 1: hmac
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set $secret 'thisisverysecretstuff';
@@ -32,6 +35,9 @@ R/pvxzHC4NLtj7S+kXFg/NePTmk=
 
 
 === TEST 2: hmac empty vars
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set $secret '';

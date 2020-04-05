@@ -15,6 +15,9 @@ run_tests();
 __DATA__
 
 === TEST 1: base32 (5 bytes)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     location /bar {
@@ -35,6 +38,9 @@ abcde
 
 
 === TEST 2: base32 (1 byte)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     location /bar {
@@ -55,6 +61,9 @@ abcde
 
 
 === TEST 3: base32 (1 byte) - not in-place editing
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set_base32_padding off;
@@ -74,6 +83,9 @@ abcde
 
 
 === TEST 4: base32 (hello world)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     location /bar {
@@ -95,6 +107,9 @@ hiya"
 
 
 === TEST 5: base32 (0 bytes left)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     location /bar {
@@ -111,6 +126,9 @@ hiya"
 
 
 === TEST 6: base32 (6 bytes padded)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     location /bar {
@@ -127,6 +145,9 @@ hiya"
 
 
 === TEST 7: base32 (4 bytes left)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     location /bar {
@@ -143,6 +164,9 @@ hiya"
 
 
 === TEST 8: base32 (3 bytes left)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     location /bar {
@@ -159,6 +183,9 @@ hiya"
 
 
 === TEST 9: base32 (1 bytes left)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     location /bar {
@@ -175,6 +202,9 @@ hiya"
 
 
 === TEST 10: base32 standard alphabet (5 bytes)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     set_base32_alphabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
@@ -196,6 +226,9 @@ abcde
 
 
 === TEST 11: base32 standard alphabet (1 byte)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     set_base32_alphabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
@@ -217,6 +250,9 @@ EE
 
 
 === TEST 12: base32 standard alphabet (1 byte) - not in-place editing
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set_base32_padding off;
@@ -237,6 +273,9 @@ EE
 
 
 === TEST 13: base32 standard alphabet (hello world)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     set_base32_alphabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
@@ -259,6 +298,9 @@ hiya"
 
 
 === TEST 14: base32 standard alphabet (0 bytes left)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     set_base32_alphabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
@@ -276,6 +318,9 @@ EJUGK3DMN4WCA53POJWGIIJC
 
 
 === TEST 15: base32 standard alphabet (6 bytes padded)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     set_base32_alphabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
@@ -293,6 +338,9 @@ EJUGK3DMN4WCA53POJWGIIJCME
 
 
 === TEST 16: base32 standard alphabet (4 bytes left)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     set_base32_alphabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
@@ -310,6 +358,9 @@ EJUGK3DMN4WCA53POJWGIIJCMFRA
 
 
 === TEST 17: base32 standard alphabet (3 bytes left)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     set_base32_alphabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
@@ -327,6 +378,9 @@ EJUGK3DMN4WCA53POJWGIIJCMFRGG
 
 
 === TEST 18: base32 standard alphabet (1 bytes left)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     set_base32_alphabet "ABCDEFGHIJKLMNOPQRSTUVWXYZ234567";
@@ -344,6 +398,9 @@ EJUGK3DMN4WCA53POJWGIIJCMFRGGZA
 
 
 === TEST 19: base32 custom alphabet (5 bytes)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     set_base32_alphabet "cdefghijklmnopqrstuvwxyz12345678";
@@ -365,6 +422,9 @@ abcde
 
 
 === TEST 20: base32 custom alphabet (1 byte)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     set_base32_alphabet "cdefghijklmnopqrstuvwxyz12345678";
@@ -386,6 +446,9 @@ gg
 
 
 === TEST 21: base32 custom alphabet (1 byte) - not in-place editing
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set_base32_padding off;
@@ -406,6 +469,9 @@ gg
 
 
 === TEST 22: base32 custom alphabet (hello world)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     set_base32_alphabet "cdefghijklmnopqrstuvwxyz12345678";
@@ -428,6 +494,9 @@ hiya"
 
 
 === TEST 23: base32 custom alphabet (0 bytes left)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     set_base32_alphabet "cdefghijklmnopqrstuvwxyz12345678";
@@ -445,6 +514,9 @@ glwim4fop5yec64rqlyikkle
 
 
 === TEST 24: base32 custom alphabet (6 bytes padded)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     set_base32_alphabet "cdefghijklmnopqrstuvwxyz12345678";
@@ -462,6 +534,9 @@ glwim4fop5yec64rqlyikkleog
 
 
 === TEST 25: base32 custom alphabet (4 bytes left)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     set_base32_alphabet "cdefghijklmnopqrstuvwxyz12345678";
@@ -479,6 +554,9 @@ glwim4fop5yec64rqlyikkleohtc
 
 
 === TEST 26: base32 custom alphabet (3 bytes left)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     set_base32_alphabet "cdefghijklmnopqrstuvwxyz12345678";
@@ -496,6 +574,9 @@ glwim4fop5yec64rqlyikkleohtii
 
 
 === TEST 27: base32 custom alphabet (1 bytes left)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_base32_padding off;
     set_base32_alphabet "cdefghijklmnopqrstuvwxyz12345678";
@@ -513,6 +594,9 @@ glwim4fop5yec64rqlyikkleohtii2c
 
 
 === TEST 28: deprecated set_misc_base32_padding
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     set_misc_base32_padding off;
     location /bar {

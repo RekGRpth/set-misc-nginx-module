@@ -20,6 +20,9 @@ __DATA__
 
 === TEST 1: set hashed upstream
 buggy?
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     upstream_list universe moon sun earth;
     location /foo {
@@ -46,6 +49,9 @@ earth
 
 === TEST 2: set hashed upstream (use var for upstream_list name)
 buggy?
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     upstream_list universe moon sun earth;
     location /foo {

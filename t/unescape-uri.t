@@ -17,6 +17,9 @@ __DATA__
 
 === TEST 1: set unescape uri
 buggy?
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /foo {
         set $foo "hello%20world";
@@ -32,6 +35,9 @@ hello world
 
 === TEST 2: set unescape uri (in-place)
 buggy?
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /foo {
         set $foo "hello%20world";
@@ -46,6 +52,9 @@ hello world
 
 
 === TEST 3: unescape '+' to ' '
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set $a 'a+b';

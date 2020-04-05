@@ -16,6 +16,9 @@ run_tests();
 __DATA__
 
 === TEST 1: base64 encode
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set_encode_base64 $out "abcde";
@@ -29,6 +32,9 @@ YWJjZGU=
 
 
 === TEST 2: base64 decode
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set_decode_base64 $out "YWJjZGU=";

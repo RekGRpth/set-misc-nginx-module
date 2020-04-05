@@ -16,6 +16,9 @@ run_tests();
 __DATA__
 
 === TEST 1: hex encode
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set_encode_hex $out "abcde";
@@ -29,6 +32,9 @@ __DATA__
 
 
 === TEST 2: hex decode
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set_decode_hex $out "6162636465";
@@ -42,6 +48,9 @@ abcde
 
 
 === TEST 3: hex encode (chinese)
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set $raw "章亦春";
