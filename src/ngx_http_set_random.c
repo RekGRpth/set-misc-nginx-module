@@ -5,7 +5,6 @@
 
 
 #include "ngx_http_set_random.h"
-#include <stdlib.h>
 
 
 ngx_int_t
@@ -13,7 +12,7 @@ ngx_http_set_misc_set_random(ngx_http_request_t *r, ngx_str_t *res,
     ngx_http_variable_value_t *v)
 {
     ngx_http_variable_value_t   *rand_from, *rand_to;
-    ngx_int_t                    int_from, int_to, tmp, random;
+    ngx_int_t                    int_from, int_to, tmp, random_;
 
     rand_from = v;
     rand_to = v + 1;
@@ -38,14 +37,14 @@ ngx_http_set_misc_set_random(ngx_http_request_t *r, ngx_str_t *res,
         int_to = tmp;
     }
 
-    random = rand() % (int_to - int_from + 1) + int_from;
+    random_ = ngx_random() % (int_to - int_from + 1) + int_from;
 
     res->data = ngx_palloc(r->pool, NGX_INT_T_LEN);
     if (res->data == NULL) {
         return NGX_ERROR;
     }
 
-    res->len = ngx_sprintf(res->data, "%i", random) - res->data;
+    res->len = ngx_sprintf(res->data, "%i", random_) - res->data;
 
     /* Set all required params */
     v->valid = 1;
