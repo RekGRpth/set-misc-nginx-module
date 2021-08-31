@@ -621,6 +621,7 @@ inyko5hqr60ge75tsn0kmmngqjvkk3e=
 --- must_die
 --- error_log eval
 qr/\[emerg\] .*? "set_base32_alphabet" directive takes an alphabet of 31 bytes but 32 expected/
+--- SKIP
 
 
 
@@ -644,3 +645,4 @@ inyko5hqr60ge75tsn0kmmngqjvkk3e=
 --- must_die
 --- error_log eval
 qr/\[emerg\] .*? "set_base32_alphabet" directive takes an alphabet of 33 bytes but 32 expected/
+--- SKIP
