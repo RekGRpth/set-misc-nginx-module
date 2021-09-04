@@ -16,6 +16,9 @@ run_tests();
 __DATA__
 
 === TEST 1: base64url encode
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set_encode_base64url $out "?b><d?";
@@ -27,6 +30,9 @@ __DATA__
 P2I-PGQ_
 
 === TEST 2: base64url decode
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set_decode_base64url $out "P2I-PGQ_";

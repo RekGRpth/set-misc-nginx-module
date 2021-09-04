@@ -15,14 +15,10 @@ run_tests();
 
 __DATA__
 
-<<<<<<< HEAD
-=== TEST 1: hmac
+=== TEST 1: hmac_sha1
 --- main_config
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
-=======
-=== TEST 1: hmac_sha1
->>>>>>> upstream/master
 --- config
     location /bar {
         set $secret 'thisisverysecretstuff';
@@ -38,14 +34,10 @@ R/pvxzHC4NLtj7S+kXFg/NePTmk=
 
 
 
-<<<<<<< HEAD
-=== TEST 2: hmac empty vars
+=== TEST 2: hmac_sha1 empty vars
 --- main_config
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
-=======
-=== TEST 2: hmac_sha1 empty vars
->>>>>>> upstream/master
 --- config
     location /bar {
         set $secret '';
@@ -62,6 +54,9 @@ R/pvxzHC4NLtj7S+kXFg/NePTmk=
 
 
 === TEST 3: hmac_sha256
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set $secret 'thisisverysecretstuff';
@@ -78,6 +73,9 @@ R/pvxzHC4NLtj7S+kXFg/NePTmk=
 
 
 === TEST 4: hmac_sha256 empty vars
+--- main_config
+    load_module /etc/nginx/modules/ngx_http_echo_module.so;
+    load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
     location /bar {
         set $secret '';
