@@ -2,6 +2,7 @@
 #define NGX_HTTP_SET_MISC_MODULE_H
 
 
+#include <ndk_set_var.h>
 #include <ngx_core.h>
 #include <ngx_config.h>
 #include <ngx_http.h>
