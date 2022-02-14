@@ -17,6 +17,7 @@ __DATA__
 
 === TEST 1: set if empty
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -38,6 +39,7 @@ GET /foo
 
 === TEST 2: set if empty
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -60,6 +62,7 @@ GET /foo?bar=71
 
 === TEST 3: set if empty
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -83,6 +86,7 @@ GET /foo?bar=
 === TEST 4: set if empty (using arg_xxx directly)
 buggy?
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config

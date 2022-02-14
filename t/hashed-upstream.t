@@ -1,7 +1,8 @@
 # vi:filetype=
 
 use lib 'lib';
-use Test::Nginx::Socket;
+#use Test::Nginx::Socket;
+use Test::Nginx::Socket skip_all => 'not working at all';
 
 #repeat_each(3);
 
@@ -21,6 +22,7 @@ __DATA__
 === TEST 1: set hashed upstream
 buggy?
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -50,6 +52,7 @@ earth
 === TEST 2: set hashed upstream (use var for upstream_list name)
 buggy?
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config

@@ -17,6 +17,7 @@ __DATA__
 
 === TEST 1: hex encode
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -33,6 +34,7 @@ __DATA__
 
 === TEST 2: hex decode
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -49,6 +51,7 @@ abcde
 
 === TEST 3: hex encode (chinese)
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config

@@ -24,6 +24,7 @@ __DATA__
 
 === TEST 1: local time format
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -39,6 +40,7 @@ GET /foo
 
 === TEST 2: GMT time format
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -54,6 +56,7 @@ GET /bar
 
 === TEST 3: set_formatted_gmt_time (empty formatter)
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -70,6 +73,7 @@ GET /bar
 
 === TEST 4: set_formatted_local_time (empty formatter)
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -86,6 +90,7 @@ GET /bar
 
 === TEST 5: set_formatted_local_time (constant formatter)
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config

@@ -17,6 +17,7 @@ __DATA__
 
 === TEST 1: set quote json value
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -34,6 +35,7 @@ GET /foo
 
 === TEST 2: set quote json value (in place)
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -51,6 +53,7 @@ GET /foo
 
 === TEST 3: set quote empty json value
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -68,6 +71,7 @@ null
 
 === TEST 4: set quote null json value
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config

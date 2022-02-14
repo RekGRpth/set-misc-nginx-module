@@ -17,6 +17,7 @@ __DATA__
 
 === TEST 1: set quote sql value
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -34,6 +35,7 @@ GET /foo
 
 === TEST 2: set quote sql value (in place)
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -51,6 +53,7 @@ GET /foo
 
 === TEST 3: set quote empty sql value
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -68,6 +71,7 @@ GET /foo
 
 === TEST 4: set quote null sql value
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -84,6 +88,7 @@ GET /foo
 
 === TEST 5: set quote null pgsql value
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -100,6 +105,7 @@ GET /foo
 
 === TEST 6: set quote pgsql value
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -117,6 +123,7 @@ E'hello\n\r\'\"\\'
 
 === TEST 7: set quote pgsql valid utf8 value
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -134,6 +141,7 @@ E'你好'
 
 === TEST 8: set quote pgsql invalid utf8 value
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_iconv_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
@@ -153,6 +161,7 @@ E'\\304\\343\\272\\303'
 
 === TEST 9: \0 for mysql
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -170,6 +179,7 @@ GET /foo?a=a%00b%00
 
 === TEST 10: \b for mysql
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -187,6 +197,7 @@ GET /foo?a=a%08b%08
 
 === TEST 11: \t for mysql
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -204,6 +215,7 @@ GET /foo?a=a%09b%09
 
 === TEST 12: \Z for mysql
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -221,6 +233,7 @@ GET /foo?a=a%1ab%1a
 
 === TEST 13: set quote sql value
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config

@@ -17,6 +17,7 @@ __DATA__
 
 === TEST 1: hmac_sha1
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -36,6 +37,7 @@ R/pvxzHC4NLtj7S+kXFg/NePTmk=
 
 === TEST 2: hmac_sha1 empty vars
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -55,6 +57,7 @@ R/pvxzHC4NLtj7S+kXFg/NePTmk=
 
 === TEST 3: hmac_sha256
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
@@ -74,6 +77,7 @@ R/pvxzHC4NLtj7S+kXFg/NePTmk=
 
 === TEST 4: hmac_sha256 empty vars
 --- main_config
+    load_module /etc/nginx/modules/ndk_http_module.so;
     load_module /etc/nginx/modules/ngx_http_echo_module.so;
     load_module /etc/nginx/modules/ngx_http_set_misc_module.so;
 --- config
