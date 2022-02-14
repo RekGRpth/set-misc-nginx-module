@@ -5,8 +5,7 @@
 #include <ngx_core.h>
 #include <ngx_config.h>
 #include <ngx_http.h>
-#include "ndk_set_var.h"
-#include "ndk_upstream_list.h"
+#include <ndk.h>
 
 
 typedef enum {

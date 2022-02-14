@@ -3,6 +3,8 @@
 #endif
 #include "ddebug.h"
 
+#include <ndk.h>
+
 #include "ngx_http_set_hmac.h"
 #include <openssl/evp.h>
 #include <openssl/hmac.h>

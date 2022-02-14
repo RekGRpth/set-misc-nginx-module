@@ -3,9 +3,7 @@
 #endif
 #include "ddebug.h"
 
-
-#include <ngx_http.h>
-#include "ngx_http_set_local_today.h"
+#include <ndk.h>
 
 
 #ifndef NGX_HTTP_SET_MISC_FMT_DATE_LEN

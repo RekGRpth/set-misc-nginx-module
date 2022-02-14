@@ -3,6 +3,7 @@
 #endif
 #include "ddebug.h"
 
+#include <ndk.h>
 #include "ngx_http_set_escape_uri.h"
 #include "ngx_string.h"
 
