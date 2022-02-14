@@ -491,14 +491,6 @@ static ngx_command_t  ngx_http_set_misc_commands[] = {
         0,
         NULL
     },
-    {
-        ngx_string ("upstream_list"),
-        NGX_HTTP_MAIN_CONF|NGX_HTTP_SRV_CONF|NGX_CONF_2MORE,
-        ndk_upstream_list,
-        0,
-        0,
-        NULL
-    },
 
     ngx_null_command
 };
