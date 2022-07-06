@@ -120,7 +120,7 @@ ngx_unescape_uri_patched(u_char **dst, u_char **src, size_t size,
             state = sw_usual;
 
             if (ch >= '0' && ch <= '9') {
-                ch = (u_char) ((decoded << 4) + ch - '0');
+                ch = (u_char) ((decoded << 4) + (ch - '0'));
 
                 if (type & NGX_UNESCAPE_REDIRECT) {
                     if (ch > '%' && ch < 0x7f) {
@@ -140,7 +140,7 @@ ngx_unescape_uri_patched(u_char **dst, u_char **src, size_t size,
 
             c = (u_char) (ch | 0x20);
             if (c >= 'a' && c <= 'f') {
-                ch = (u_char) ((decoded << 4) + c - 'a' + 10);
+                ch = (u_char) ((decoded << 4) + (c - 'a') + 10);
 
                 if (type & NGX_UNESCAPE_URI) {
                     if (ch == '?') {
